@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+        body {
+            padding: 20px;
+        }
+        div {
+            padding-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="1">
+        <input type="text" placeholder="First name" id="name" onblur="allLetter()">
+        <input type="text" placeholder="Last name" id="name" onblur="allLetter()">
+    </div>
+    <div id="erorr">
+    </div>
+    <div id="2">
+        <input type="text" placeholder="Email" id="email" width="600" onblur="Email()">
+    </div>
+    <div id="erorr2">
+    </div>
+    <div id="3">
+        <input type="password" placeholder="Password" id="pass" onblur="CheckPassword()">
+    </div>
+    <div id="erorr3">
+    </div>
+    <div id="4">
+        <input type="password" placeholder="Confirm password" id="pass1" onblur="CheckPassword2()">
+    </div>
+    <div id="erorr4">
+    </div>
+    <div id="5">
+        <input type="text" placeholder="Phone number" id="phone" onblur=" phonenumber()">
+    </div>
+    <div id="erorr5">
+    </div>
+    <script>
+        function allLetter() {
+            var letters = /^[A-Za-z]/;
+            if ($("#name").val().match(letters) && $("#name").val().length > 5) {
+                //alert('Your name have accepted : you can try another');
+                return true;
+            }
+            else {
+                $("#erorr").html("Please write letter only").css("color", "red");
+                return false;
+            }
+        }
+        function Email() {
+            //var email=/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
+            var email = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+            if ($("#email").val().match(email)) {
+                //alert('Your name have accepted : you can try another');
+                return true;
+            }
+            else {
+                $("#erorr2").html("Please write email correct").css("color", "red");
+                return false;
+            }
+        }
+      function CheckPassword() {
+            var paswd = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,32}$/;
+            var pass1 = $("#pass").val();
+            if (pass1.match(paswd)) {
+              //  alert('Correct, try another...')
+                return true;
+            }
+            else {
+                ///alert('Wrong...!')
+                $("#erorr3").html('Password must have at 1letter, 1symbol,1number').css("color", "red");
+                return false;
+            }}
+            function CheckPassword2(){
+            var pass11 = $("#pass").val();
+            var pass2= $("#pass1").val();
+            if(pass11 === pass2){
+                return true;
+            }
+            else {
+                ///alert('Wrong...!')
+                $("#erorr4").html('doesn\'t match').css("color", "red");
+                return false;
+            }
+        }
+        
+            function phonenumber()
+{
+       var phoneno = /^([009627]{6})([7-9]{1})([0-9]{7})/;
+         if($("#phone").val().match(phoneno)) {
+         alert("hghghhhg");
+	      return true;      
+	       }
+         else
+         {
+          //alert("Not a valid Phone Number");
+          $("#erorr5").html("Please write a corect number").css("color", "red");
+	      return false;
+     }
+}
+
+    
+    </script>
+</body>
+</html>

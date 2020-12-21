@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+     /*   // Check if the localStorage object exists
+        if(localStorage) {
+            // Store data
+            localStorage.setItem("first_name", "Anas");
+            
+            // Retrieve data
+            alert("Hi, " + localStorage.getItem("first_name"));
+        } else {
+            alert("Sorry, your browser do not support local storage.");
+        }
+*/
+       
+        if(sessionStorage) {
+        // Store data
+          sessionStorage.setItem("last_name", "Melhem");
+    
+         // Retrieve data
+          alert("Hi, " + localStorage.getItem("first_name") + " " + sessionStorage.getItem("last_name"));
+        } else {
+        alert("Sorry, your browser do not support session storage.");
+         }
+        </script>
+</body>
+</html>

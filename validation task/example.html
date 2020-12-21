@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h1>Example using WebStorage (local-storage)</h1>
+<script>
+const CACHE_NAME = "myCache";
+//1
+ if ('caches' in window) {
+//2
+  caches.open(CACHE_NAME).then((cache) => {
+     
+    console.log("Cached created");
+      
+    //3  
+    cache.add("Character", { name: "Rick", lastName: "grimes"   
+    }).then( () => console.log("character added"));
+}).catch((err) => {
+      //error
+  })
+  function get(cacheName, entry) {
+  return window.caches.open(cacheName).then(function(cache) {
+    return cache.match(entry);
+  });
+}
+}</script>
+</body>
+</html>

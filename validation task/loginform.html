@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+    <input type="text" id="fname" placeholder="First Name" onblur="validatefname1()">
+    <div id="error1"> </div><br><br>
+
+    <input type="text" id="lname" placeholder="Last Name" onblur="validatelname2()">
+    <div id="error2"> </div><br><br>
+
+    <input type="text" id="email" placeholder="E-mail" onblur="Validateemail()">
+    <div id="error3"> </div><br><br>
+
+    <input type="password" id="pass" placeholder="Password" onblur=" CheckPassword1()">
+    <div id="error4"> </div><br><br>
+
+    <input type="password" id="passcon" placeholder="Confirm Password" onblur="CheckPassword2()">
+    <div id="error5"> </div><br><br>
+
+    <input type="text" id="num" placeholder="Phone Number" onblur="phonenumber()">
+     <div id="error6"></div><br><br>
+
+     <input type="submit" id="submit" value="Log In">
+
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    /*window.onload = function() {
+    document.getElementById("myText").focus();
+    };*/
+    var firstname=document.getElementById('fname').value;
+    var lastname=document.getElementById('lname').value;
+    var useremail=document.getElementById('email').value;
+    //to check for all input type and know if there any content or no you will 
+    //take the input and checked it by this function:
+   
+   function validatefname1(){
+
+    var alphaExp = /^[a-zA-Z]+$/;
+    if (  fname.value.length != 0 && fname.value.match(alphaExp) && fname.value.length >2){
+    alert ("First Name successfully");
+   // window.location = "success.html"; // Redirecting to other page.
+    return true;
+          }
+     else{
+    alert ("First Name is not successfully");
+    $("#error1").html("Please input your First Name").css("color", "red");
+                return false;
+      }
+     
+    }
+    function validatelname2(){
+        var alphaExp = /^[a-zA-Z]+$/;
+    if (  lname.value.length != 0 && lname.value.match(alphaExp) && lname.value.length >2){
+    alert ("Last Name successfully");
+   // window.location = "success.html"; // Redirecting to other page.
+    return true;
+          }
+     else{
+    alert ("Last Name is not successfully");
+    $("#error2").html("Please input your Last Name").css("color", "red");
+                return false;
+      }
+     
+    }
+ 
+        function Validateemail(){
+
+        var emails = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+            if ($("#email").val().match(emails)) {
+                alert('you are write a correct E-mail ');
+                return true;
+            }
+            else {
+                $("#error3").html("Please write email correct").css("color", "red");
+                return false;
+            }
+        }
+
+        function CheckPassword1(){
+ 
+        var passw=  /^[A-Za-z]\w{8,32}$/;
+         if($("#pass").val().match(passw)) 
+{ 
+        alert('Correct')
+        return true;
+        }
+      else
+        { 
+         alert('Wrong...!')
+         $("#error4").html("Please input your Password").css("color", "red");
+        return false;
+        }
+}
+function CheckPassword2(){
+ 
+
+  if(pass.value === passcon.value) {
+ 
+ alert('Correct-Email')
+ return true;
+ }
+else
+ { 
+  alert('Wrong...!')
+  $("#error5").html("Please input your Password").css("color", "red");
+ return false;
+ }
+}
+function phonenumber(){{
+
+  var phoneno = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
+  if($("#num").val().match(phoneno))
+        {
+            alert('Correct-phone Number')    
+      return true;
+        }
+      else
+        {
+        alert("Wrong...try agin");
+        $("#error6").html(" Please input your Phone Number").css("color", "red");
+        return false;
+        }
+    }
+
+}
+
+</script>
+
+
+
+</body>
+</html>
